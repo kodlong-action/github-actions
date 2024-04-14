@@ -16,7 +16,7 @@ jobs:
   download-artifact:
     runs-on: ubuntu-latest
     needs: [upload-artifact]
-    stpes:
+    stpe:
     - name: download artifact
       uses: actions/download-artifact@v3
       with:
