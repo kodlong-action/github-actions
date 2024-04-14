@@ -28,7 +28,7 @@ jobs:
         gh repo create kodlong-action/${{ inputs.prefix }}-${{ inputs.name }} --public --add-readme
     - name: slack
       if: always()
-      uses: slacakapi/slack-github-action@v1.24.0
+      uses: slackapi/slack-github-action@v1.24.0
       with:
         payload: |
           {
@@ -36,11 +36,11 @@ jobs:
               {
                 "pretext": "create repo result",
                 "color": "28a745",
-                "fields" : [
+                "fields": [
                   {
-                    "title": "create repo result ${{ steps.create-rpeo.outcome }}",
+                    "title": "create repo result",
                     "short": true,
-                    "value": "${{ inputs.prefix }}-${{ inputs.name }}"
+                    "value": "Completed"
                   }
                 ]
               }
@@ -48,4 +48,5 @@ jobs:
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_WEBHOOK_TYPE: INCOMMING_WEBHOOK
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        
