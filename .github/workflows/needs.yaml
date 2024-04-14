@@ -18,9 +18,10 @@ jobs:
   job3:
     runs-on: ubuntu-latest
     steps:
-    - name: |
-      echo "job3 failed"
-      exit 1
+    - name: echo
+      run: |
+        echo "job3 failed"
+        exit 1
 
   job4:
     runs-on: ubuntu-latest
