@@ -34,7 +34,7 @@ jobs:
           {
             "attachments": [
               {
-                "pretext": "create repo result",
+                "pretext": "create repo result pretext",
                 "color": "28a745",
                 "fields": [
                   {
