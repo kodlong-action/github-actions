@@ -5,7 +5,9 @@ jobs:
   create-output:
     runs-on: ubuntu-latest
     steps:
-    - name: |
+    - name: echo output
+      id: check-output
+      run: |
         echo "test=hello" >> $GITHUB_OUTPUT
     - name: check output
       run: |
