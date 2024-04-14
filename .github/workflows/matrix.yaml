@@ -3,7 +3,7 @@ on: push
 
 jobs: 
   get-matrix:
-    startegy:
+    strategy:
       matrix:
         os: [window-latest, ubuntu-latest]
         version: [12,14]
