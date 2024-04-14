@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: |
-      echo "test=hello" >> $GITHUB_OUTPUT
+        echo "test=hello" >> $GITHUB_OUTPUT
     - name: check output
       run: |
         echo ${{ steps.check-output.outputs.test }}
