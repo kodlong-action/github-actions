@@ -2,7 +2,7 @@ name: issue-notify
 
 on:
   issues:
-    types: [opend]
+    types: [opened]
 
 jobs:
   get-keyword:
