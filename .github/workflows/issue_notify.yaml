@@ -15,7 +15,7 @@ jobs:
     - name: get keyword
       id: get_keyword
       run: |
-        echo level=undefined >> $GITHUB_OUTPUT
+        echo level=Undefined >> $GITHUB_OUTPUT
 
         keywords=$(cat keyword-list.txt)
         for keyword in $keywords; do
