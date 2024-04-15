@@ -34,7 +34,7 @@ jobs:
     environment: ${{ need.get-keyword.outputs.level }}
     steps:
     - name: slack
-      uses: slackapi.slack-github-action@v1.24.0
+      uses: slackapi/slack-github-action@v1.24.0
       with:
         paload: |
           {
