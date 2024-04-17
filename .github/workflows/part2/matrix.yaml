@@ -1,7 +1,7 @@
 name: matrix
 on: push
 
-jobs: 
+jobs:
   get-matrix:
     strategy:
       matrix:
@@ -9,7 +9,7 @@ jobs:
         version: [12,14]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: check matrix
-        run: |
-          echo ${{ matrix.os }}
-          echo ${{ matrix.version }}
+    - name: check matrix
+      run: |
+        echo ${{ matrix.os }}
+        echo ${{ matrix.version }}

@@ -10,13 +10,13 @@ jobs:
     outputs:
       level: ${{ steps.get-keyword.outputs.level }}
     steps:
-    - name: checkout
+    - name: checkout 
       uses: actions/checkout@v4
     - name: get keyword
       id: get-keyword
       run: |
         echo level=Undefined >> $GITHUB_OUTPUT
-
+        
         keywords=$(cat keyword-list.txt)
         for keyword in $keywords; do
           if [[ "${{ github.event.issue.title }}" =~ "$keyword" ]]; then
@@ -26,14 +26,18 @@ jobs:
     - name: get output
       run: |
         echo ${{ steps.get-keyword.outputs.level }}
-
+  
   slack:
     needs: [get-keyword]
     if: needs.get-keyword.outputs.level != 'Undefined'
     runs-on: ubuntu-latest
-    environment: ${{ needs.get-keyword.outputs.level }}
+    # environment: ${{ needs.get-keyword.outputs.level }}
+    strategy:
+      matrix:
+        environment: ["${{ needs.get-keyword.outputs.level }}"]
+    environment: ${{ matrix.environment }}
     steps:
-    - name: slack
+    - name: slack 
       uses: slackapi/slack-github-action@v1.24.0
       with:
         payload: |
@@ -52,19 +56,7 @@ jobs:
               }
             ]
           }
-
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-
-
-
-
-
-
-
-
-
-
 
